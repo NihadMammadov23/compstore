@@ -1,5 +1,6 @@
 # Computer Shopping Website
 
+![Shopping Banner](https://github.com/NihadMammadov23/compstore/blob/main/compstore.png)  
 *A client-side computer shopping platform with user authentication and admin controls.*
 
 ---
