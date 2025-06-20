@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shopping</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/shopping.css">
+    <script src="js/shopping.js" defer></script>
+</head>
+
+<body style="background-color: black;">
+    <style>
+        .danger {
+            border-color: #f44336;
+            color: red;
+        }
+
+        .danger:hover {
+            background: #f44336;
+            color: white;
+        }
+    </style>
+    <div class="container-fluid">
+        <hr>
+        <div class="row">
+            <div class="col-sm-12">
+                <a href="index.html" class="btn danger">Esas sehife</a>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <input type="search" style="color: red;" id="category-search-input" class="form-control"
+                    placeholder="Axtaris" oninput="searchCategory(this)">
+                <br>
+                <div id="computer-categories-div"></div>
+            </div>
+            <div class="col-sm-9">
+                <div id="computers-loading">
+                    <div class="spinner-border"></div>
+                </div>
+                <div id="computers-div"></div>
+                <div id="computers-loading-next">
+                    <div class="spinner-border"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" id="open-basket-button" onclick="onOpenBasket()">
+        Basket <span id="basket-computer-count" class="badge badge-light">0</span>
+    </button>
+
+    <div id="computer-details-modal">
+        <div id="computer-details-modal-content">
+            <h2 style="text-align: center;">Information about Computer</h2>
+            <div id="computer-modal-image-container"></div>
+            <div id="computer-modal-name"></div>
+            <div id="computer-modal-description"></div>
+            <div id="computer-modal-price"></div>
+            <div id="computer-modal-phone"></div>
+            <div id="computer-modal-isNew"></div>
+            <div id="computer-modal-ram"></div>
+            <div id="computer-modal-cpu"></div>
+            <div id="computer-modal-drive"></div>
+            <div id="computer-modal-drive-type"></div>
+            <div id="computer-modal-os"></div>
+            <div id="computer-modal-video-card"></div>
+        </div>
+    </div>
+
+    <div id="basket-modal">
+        <div id="basket-modal-content" style="overflow-x: auto;">
+            <div style="overflow: auto; margin-bottom: 5px;">
+                <span id="basket-modal-close-button">x</span>
+            </div>
+            <h1 style="text-align: center;">Basket</h1>
+            <table class="basket-table table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Value</th>
+                        <th>Count</th>
+                        <th>Total Value</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody id="basket-computers-table-body"></tbody>
+            </table>
+
+            <div style="overflow: auto;">
+                <span id="basket-total-price">
+                    Total Value
+                    <span id="basket-total-price-content">0</span> AZN
+                </span>
+
+                <button onclick="clearBasket()" id="clear-basket-button" class="btn btn-danger">Clear Basket</button>
+                <button onclick="confirmOrder()" id="confirm-order-button" class="btn btn-success ">Confirm Order</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirm-order-modal">
+        <div id="confirm-order-modal-content">
+            <div style="overflow: auto; margin-bottom: 5px;">
+                <span id="confirm-order-modal-close-button">x</span>
+                <h1 style="text-align: center;">Write connection informations</h1>
+                <div id="confirm-order-modal-form-div">
+                    <form id="confim-order-modal-form" class="was-validated" onsubmit="onOrderSubmit()">
+                        <div class="form-group">
+                            <label for="customer-name">Name:</label>
+                            <input id="customer-name" type="text" name="customer-name" placeholder="Write your Name.."
+                                class="form-control" required minlength="2" maxlength="30">
+                            <div class="valid-feedback">True</div>
+                            <div class="invalid-feedback">Don't leave empty. Min 2 Max 30 symbol</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customer-adress">Adress:</label>
+                            <input id="customer-adress" type="text" name="customer-adress"
+                                placeholder="Write your Adress .." class="form-control" required minlength="2"
+                                maxlength="30">
+                            <div class="valid-feedback">True</div>
+                            <div class="invalid-feedback">Don't leave empty. Min 2 Max 30 symbol</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customer-phone">Phone:</label>
+                            <input id="customer-phone" type="text" name="customer-phone"
+                                pattern="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" placeholder="Write your Phone .."
+                                class="form-control" required minlength="2" maxlength="30">
+                            <div class="valid-feedback">True</div>
+                            <div class="invalid-feedback">Don't leave empty. xxx-xxx-xxxx write in that format</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customer-mail">Email</label>
+                            <input id="customer-mail" type="email" name="customer-mail"
+                                placeholder="Write your Email Adress .." class="form-control" required minlength="2"
+                                maxlength="30">
+                            <div class="valid-feedback">True</div>
+                            <div class="invalid-feedback">Don't leave empty.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customer-order-note">Note:</label>
+                            <input id="customer-order-note" type="text" name="customer-order-note"
+                                placeholder="Write your Customer Note .." class="form-control" required minlength="2"
+                                maxlength="30">
+                            <div class="valid-feedback">True</div>
+                            <div class="invalid-feedback">Don't leave empty. Min 2 Max 30 symbol</div>
+                        </div>
+
+                        <div class="form-group forn-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" name="confirmation" class="form-check-input" required>
+                                Melumatlarin dogrulugunu tesdiq edin!
+                                <div class="valid-feedback">Tesdiq Edildi!</div>
+                                <div class="invalid-feedback"></div>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Yadda Saxla</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fixed-elements"></div>
+    <input type="text" id="computer-search-input" class="form-control" placeholder="Axtaris.." onkeydown="onSearchKeyDown(event)">
+</body>
+
+</html>

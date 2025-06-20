@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Yeni hesab yaratmaq</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/createaccaunt.js" defer></script>
+    <script src="css/createaccaunt.css"></script>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body class="nm">
+    <style>
+        .danger {
+            border-color: #f44336;
+            color: red;
+        }
+
+        .danger:hover {
+            background: #f44336;
+            color: white;
+        }
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"></div>
+
+            <div class="col-sm-4">
+                <hr />
+                <a class="btn danger" href="index.html">Main Page</a>
+                <a class="btn danger" href="login.html">Login Page</a>
+                <hr />
+                <h2> <b style="color: red;">Create Accaunt</b> </h2>
+                <hr />
+
+                <div class="alert alert-danger" id="user-exists-error-alert" style="display: none"></div>
+
+                <div class="alert alert-success" id="user-created-alert" style="display: none"></div>
+
+                <form action="" class="was-validated" onsubmit="onCreateAccount(event)">
+                    <div class="form-group">
+                        <label for="user-full-name"><b style="color: red;">Name</b></label>
+                        <input type="text" class="form-control" id="user-full-name" required minlength="2"
+                            maxlength="30" />
+                        <div class="valid-feedback"> <b>True</b> </div>
+                        <div class="invalid-feedback">
+                            <b>Don't leave empty. Min 2, Max 30 symbol</b>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-phone"> <b style="color: red;">Phone:</b> </label>
+                        <input type="text" class="form-control" id="user-phone" required
+                            pattern="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" />
+                        <div class="valid-feedback"><b>True</b></div>
+                        <div class="invalid-feedback">
+                            <b>Phone - (xxx-xxx-xxxx)</b>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username"><b style="color: red;">Username:</b></label>
+                        <input type="text" class="form-control" id="username" required minlength="2" maxlength="30" />
+                        <div class="valid-feedback"><b>True</b></div>
+                        <div class="invalid-feedback">
+                            <b>Don't leave empty. Min 2, Max 30 symbol</b>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password"><b style="color: red;">Password:</b></label>
+                        <input type="password" class="form-control" id="password" required minlength="2"
+                            maxlength="30" />
+                        <div class="valid-feedback"><b>True</b></div>
+                        <div class="invalid-feedback">
+                            <b>Don't leave empty. Min 2, Max 30 symbol</b>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn danger"><b>Create Accaunt</b> </button>
+                    <hr />
+
+                    <a href="login.html"><span> <b style="color: red;">Do you have an accaunt?</b> </span></a>
+                </form>
+            </div>
+
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+</body>
+
+</html>

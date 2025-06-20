@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Settings</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/settings.js" defer></script>
+</head>
+
+<body style="background-color: black;">
+    <style>
+        .danger {
+            border-color: #f44336;
+            color: red;
+        }
+
+        .danger:hover {
+            background: #f44336;
+            color: white;
+        }
+    </style>
+
+    <div class="container-fluid">
+        <hr>
+        <div class="row">
+            <div class="col-sm-12">
+                <div style="text-align: center; color: red;">Attention!</div>
+                <hr>
+                <h3 style="color: red;">
+                    When the (Reset Data) button is pressed, the data used within the program will be cleared and reset.
+                    When you open the program for the first time, a lot of data is already loaded. The user can enter
+                    other information into the program. Because the program is not part of the Backend, the stored data
+                    will remain only in the web browser where the program is used.
+                </h3>
+
+                <a href="index.html" class="btn danger">Main Page</a>
+                <button class="btn danger" onclick="onClearLocalStorage()">Reset</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <hr>
+                <h1 style="text-align: center; color: red;">Other Informations</h1>
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a href="#settings-page" data-toggle="tab" class="nav-link active" style="color: red;">Settings Page</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#main-page" data-toggle="tab" class="nav-link" style="color: red;">Main Page</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#shopping-page" data-toggle="tab" class="nav-link" style="color: red;">Shopping Page</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#login-page" data-toggle="tab" class="nav-link" style="color: red;">Login Page</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#computers-page" data-toggle="tab" class="nav-link" style="color: red;">Computers Page</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#orders-page" data-toggle="tab" class="nav-link" style="color: red;">Orders Page</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#steps-page" data-toggle="tab" class="nav-link" style="color: red;">Steps Page</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content" style="min-height: 500px;">
+                    <div id="settings-page" class="container tab-pane active">
+                        <p style="color: red;">
+                            Bu bölmədə proqramda istifadə olunan şablon məlumatları sıfırlamaq mümkündür. Bu proqramı
+                            qurmaq üçün aşağıdakı proqramlardan istifadə olunub:
+                        </p>
+                        <ul style="color: red;">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>Bootstrap</li>
+                            <li>Jquery</li>
+                            <li>Javascript</li>
+                        </ul>
+
+                        <p style="color: red;">
+                            Proqram ilk açıldığı zaman <strong style="color: red;">index.js</strong> faylının daxilində
+                            yazılmış olan bir neçə obyekt
+                            yaradılır və brovserin localStorage yaddaşına yazılır. Proyektin daxilində bu məlumatlar
+                            istifadə olunur. Proqram sadəcə lokal işləyir. Heç bir servisə bağlanmır. Proyektin sadəcə
+                            front-end hissəsi qurulub.
+                        </p>
+                    </div>
+
+                    <div id="main-page" class="container tab-pane fade">
+                        <br>
+                        <p style="color: red;">Bu səhifədə istifadəçi digər səhifələrə daxil ola bilər. Komputer alış-verişi səhifəsinə
+                            daxil olarsa, onda, mövcud qeydiyyat olunmuş komputerlərin kateqoriyalarını görəcək.
+                            Sonradan qeydiyyat olunmuş komputerlərdə həmçinin siyahıda görünəcək. İstifadəçi
+                            komputerləri axtara bilər.</p>
+
+                        <p style="color: red;">
+                            <strong>Hesaba daxil olmaq</strong> düyməsinə basaraq hesabına daxil ola bilər. Əgər mövcud
+                            hesabı yoxdursa,
+                            onda, özünə yeni hesab aça bilər. Bu məlumatlar sadəcə cari brovserdə yadda saxlanır.
+                        </p>
+
+                        <p style="color: red;">
+                            Hesaba daxil olan istifadəçi proqramı satıcı kimi istifadə etməyə başlayır. Həmçinin alıcı
+                            kimidə istifadə edə bilər. Yəni, siyahıdan komputer seçib, səbətə atıb komputerləri ala
+                            bilər. Satıcı kimi hesabına daxil olmuş istifadəçi, sistemə yeni komputerlər qeydiyyat edə
+                            bilər və özünün satdığı komputerlərin sifarişlərini görə bilər.
+                        </p>
+                    </div>
+
+                    <div id="shopping-page" class="container tab-pane fade">
+                        <br>
+                        <p style="color: red;">
+                            Bu bölmədə istifadəçi proqramı alıcı kimi istifadə edir. Satıcı kimi hesabına daxil olmuş
+                            olsada, olmasada. Alıcı komputerlərin kateqoriyaları siyahısından istədiyi kateqoriyaya
+                            daxil ola bilər və istədiyi komputeri səbətinə ata bilər. Həmçinin, alıcı komputerlərin
+                            şəkilləri üzərində mausun sol düyməsinə basmaqla, komputer haqqında ətraflı məlumat ala
+                            bilər. Almaq istədiyi komputerləri səbətə atıb bitirdikdən sonra sifarişini təstiqləyir və
+                            açılan pəncərədə, alıcı olaraq öz məlumatlarını daxil edir və sifarişini yekunlaşdırır. Bu
+                            zaman, səbətinə atıb aldığı komputerlər, həmin komputerlərin satıcılarının sifarişləri
+                            bölməsində görünür.
+                        </p style="color: red;">
+                    </div>
+
+                    <div id="login-page" class="container tab-pane fade">
+                        <p style="color: red;">
+                            Bu bölmədə istifadəçi hesabına daxil ola bilər. Həmçinin, əgər hesabı mövcud deyilsə, özü
+                            üçün yeni hesab aça bilər.
+                        </p>
+                        <p style="color: red;">
+                            Proqramı ilk dəfə açdığımızda 5 ədəd istifadəçi artıq sistemdə qeydiyyat edilmiş olur. Bu
+                            istifadəçilər aşağıdakılardır:
+                        </p>
+
+                        <table class="table table-bordered" style="color: red;">
+                            <thead>
+                                <tr>
+                                    <th>Id:</th>
+                                    <th>Username:</th>
+                                    <th>Password:</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>u1</td>
+                                    <td>p1</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td>u2</td>
+                                    <td>p2</td>
+                                </tr>
+
+                                <tr>
+                                    <td>3</td>
+                                    <td>u3</td>
+                                    <td>p3</td>
+                                </tr>
+
+                                <tr>
+                                    <td>4</td>
+                                    <td>u4</td>
+                                    <td>p4</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>u5</td>
+                                    <td>p5</td>
+                                </tr>
+
+                                <tr>
+                                    <td>6</td>
+                                    <td>admin</td>
+                                    <td>admin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div id="computers-page" class="container tab-pane fade">
+                        <p style="color: red;">
+                            Bu bölmədə satıcı öz komputerlərinin siyahısını görə bilir. Həmçinin, yeni komputer
+                            qeydiyyatı edə bilər və siyahıdan istədiyi komputerini seçib silə və redaktə edə bilər.
+                        </p>
+                    </div>
+
+
+                    <div id="orders-page" class="container tab-pane fade">
+                        <p style="color: red;">
+                            Bu bölmədə istifadəçi sifarişlərini görə bilər. Yəni, satıcı onun komputerlərini alan
+                            alıcıların məlumatlarını və hansı komputerləri almaq istədiklərinin siyahısını görə bilir.
+                        </p>
+                    </div>
+
+                    <div id="steps-page" class="container tab-pane fade">
+                        <br>
+                        <table class="table table-bordered" style="color: red;">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Steps</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Creating Login main-page</td>
+                                    <td class="step-mark">10</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td>Creating New User Account</td>
+                                    <td class="step-mark">20</td>
+                                </tr>
+
+                                <tr>
+                                    <td>3</td>
+                                    <td>Checking the Username Existence</td>
+                                    <td class="step-mark">5</td>
+                                </tr>
+
+                                <tr>
+                                    <td>4</td>
+                                    <td>Login to the User's Account</td>
+                                    <td class="step-mark">15</td>
+                                </tr>
+
+                                <tr>
+                                    <td>5</td>
+                                    <td>Logout from the User's Account</td>
+                                    <td class="step-mark">15</td>
+                                </tr>
+
+                                <tr>
+                                    <td>6</td>
+                                    <td>User Registration of a new Copmuter</td>
+                                    <td class="step-mark">30</td>
+                                </tr>
+
+                                <tr>
+                                    <td>7</td>
+                                    <td>The User's see and search for the list of Computers</td>
+                                    <td class="step-mark">20</td>
+                                </tr>
+
+                                <tr>
+                                    <td>8</td>
+                                    <td>Deleting a User's Computer</td>
+                                    <td class="step-mark">10</td>
+                                </tr>
+
+                                <tr>
+                                    <td>9</td>
+                                    <td>Editing User's Computer</td>
+                                    <td class="step-mark">20</td>
+                                </tr>
+
+                                <tr>
+                                    <td>10</td>
+                                    <td>Making the Computer Category Page</td>
+                                    <td class="step-mark">10</td>
+                                </tr>
+
+                                <tr>
+                                    <td>11</td>
+                                    <td>Making the Computer List Page</td>
+                                    <td class="step-mark">30</td>
+                                </tr>
+
+                                <tr>
+                                    <td>12</td>
+                                    <td>Computer search on Sales Page</td>
+                                    <td class="step-mark">25</td>
+                                </tr>
+
+                                <tr>
+                                    <td>13</td>
+                                    <td>View detailed computer informations</td>
+                                    <td class="step-mark">15</td>
+                                </tr>
+
+                                <tr>
+                                    <td>14</td>
+                                    <td>Throwing computers into the cart and baskets</td>
+                                    <td class="step-mark">30</td>
+                                </tr>
+
+                                <tr>
+                                    <td>15</td>
+                                    <td>Change computer quantities in the Recycle Bin</td>
+                                    <td class="step-mark">15</td>
+                                </tr>
+
+                                <tr>
+                                    <td>16</td>
+                                    <td>Delete the computer in the Recycle Bin</td>
+                                    <td class="step-mark">10</td>
+                                </tr>
+
+                                <tr>
+                                    <td>17</td>
+                                    <td>Basket cleaning</td>
+                                    <td class="step-mark">10</td>
+                                </tr>
+
+                                <tr>
+                                    <td>18</td>
+                                    <td>Basket approval and registration window preparation and order registration</td>
+                                    <td class="step-mark">35</td>
+                                </tr>
+
+                                <tr>
+                                    <td>19</td>
+                                    <td>The user can see their orders</td>
+                                    <td class="step-mark">25</td>
+                                </tr>
+
+                                <tr>
+                                    <td>20</td>
+                                    <td>Search for user orders</td>
+                                    <td class="step-mark">10</td>
+                                </tr>
+
+                                <tr>
+                                    <td>21</td>
+                                    <td>Preparation of admin page</td>
+                                    <td class="step-mark">30</td>
+                                </tr>
+
+                                <tr>
+                                    <td>22</td>
+                                    <td>Partial loading of computers on the buyer's page</td>
+                                    <td class="step-mark">40</td>
+                                </tr>
+
+                                <tr>
+                                    <td>X</td>
+                                    <td>Total Cost</td>
+                                    <td id="total-step-mark"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
