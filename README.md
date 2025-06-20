@@ -1,6 +1,5 @@
 # Computer Shopping Website
 
-![Shopping Banner](https://user-images.githubusercontent.com/your-username/your-repo/assets/shopping-banner.png)  
 *A client-side computer shopping platform with user authentication and admin controls.*
 
 ---
